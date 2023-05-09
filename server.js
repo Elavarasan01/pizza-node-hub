@@ -29,6 +29,6 @@ app.get("/serve", (req, res) => {
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
-app.use("/", PizzaRoute);
+app.use("/api/pizza", PizzaRoute);
 
 module.exports = app;
