@@ -18,8 +18,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const port = process.env.PORT || 2000;
-app.get("/hello", (req, res) => {
+app.get("/node", (req, res) => {
     res.send('Welcome to node backend');
+})
+
+app.get("/serve", (req, res) => {
+    res.send('Welcome to nodejs backend serveices');
 })
 
 app.listen(port, () => {
