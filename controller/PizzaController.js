@@ -3,9 +3,7 @@ const mongoose=require("mongoose")
 
 //getting all pizza details
 const getPizza= async (req,res,next)=>{
-   setTimeout(()=>{
-    Pizza.find()
-   },3000) 
+  await Pizza.find()
     .then((response)=>{
         res.json({
           response
