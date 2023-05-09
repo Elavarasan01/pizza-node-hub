@@ -2,8 +2,8 @@ const Pizza=require("../models/menu")
 const mongoose=require("mongoose")
 
 //getting all pizza details
-const getPizza=(req,res,next)=>{
-    Pizza.find()
+const getPizza= async (req,res,next)=>{
+   await Pizza.find()
     .then((response)=>{
         res.json({
           response
@@ -17,9 +17,9 @@ const getPizza=(req,res,next)=>{
 }
 
 //getting single pizza details
-const getPizzaById=(req,res,next)=>{
+const getPizzaById= async (req,res,next)=>{
     let pizzaId=req.body.pizzaId;
-    Pizza.findById(pizzaId)
+   await Pizza.findById(pizzaId)
     .then((response)=>{
         res.json({
             response
