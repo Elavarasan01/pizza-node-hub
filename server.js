@@ -2,7 +2,18 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-const PizzaRoute = require("./routes/routes");
+const router = express.Router();
+
+const PizzaController=require('./controller/PizzaController')
+
+router.get("/",PizzaController.getPizza)
+router.post("/get",PizzaController.getPizzaById)
+router.post("/create",PizzaController.postPizza)
+router.post("/modify",PizzaController.updatePizza)
+router.post("/remove",PizzaController.deletePizza)
+router.post("/search",PizzaController.searchPizza)
+
+// const PizzaRoute = require("./routes/routes");
 
 const app = express();
 
@@ -29,6 +40,7 @@ app.get("/serve", (req, res) => {
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
-app.use("/api/pizza", PizzaRoute);
+// app.use("/api/pizza", PizzaRoute);
 
+module.exports = router;
 module.exports = app;
