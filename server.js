@@ -2,20 +2,20 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-const router = express.Router();
+const app = express();
+// const router = express.Router();
 
 const PizzaController=require('./controller/PizzaController')
 
-router.get("/",PizzaController.getPizza)
-router.post("/get",PizzaController.getPizzaById)
-router.post("/create",PizzaController.postPizza)
-router.post("/modify",PizzaController.updatePizza)
-router.post("/remove",PizzaController.deletePizza)
-router.post("/search",PizzaController.searchPizza)
+app.get("/",PizzaController.getPizza)
+app.post("/get",PizzaController.getPizzaById)
+app.post("/create",PizzaController.postPizza)
+app.post("/modify",PizzaController.updatePizza)
+app.post("/remove",PizzaController.deletePizza)
+app.post("/search",PizzaController.searchPizza)
 
 // const PizzaRoute = require("./routes/routes");
 
-const app = express();
 
  mongoose.connect('mongodb+srv://kselaa2010:Elavarasan@cluster0.mp3dumz.mongodb.net/pizzadb', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
@@ -42,5 +42,5 @@ app.listen(port, () => {
 });
 // app.use("/api/pizza", PizzaRoute);
 
-module.exports = router;
+// module.exports = router;
 module.exports = app;
